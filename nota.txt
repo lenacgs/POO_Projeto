@@ -16,8 +16,12 @@ Imprimir a ArrayList<Pessoa> GuestList de cada local printGuestList(). MAX_GUEST
 Enquanto a GuestList estiver vazia todos os inscritos são adicionados a ela. Quando a GuestList está cheia e aparece um boémico percorremos a lista de baixo para cima, até encontrarmos um não boémico que vamos substituir por um boémico.
 Cada Bar deve ter um método printGuestList() que consoante seja Aluno ou Professor ou Funcionario deve imprimir os seus atributos da forma especificada.
 
-6. Contabilização das receitas dos locais visitados
+6. Contabilização das receitas dos locais visitados - getReceita()
 Temos que ir a ArrayList<Local> locais e aceder á ArrayList<Pessoa> inscritos de cada local.
 Só nos interessando os locais que são Exposições ou Bares.
 Quando é uma Exposição devemos ter duas variáveis, numAlunos, numOutros. A receita das Exposições vai ser numAlunos*(custo*0.90) + numOutros*custo.
 Quando é um bar temos só uma variável com numTotal e a receita é numTotal*consumoMin.
+
+
+26 Out Madalena -------------------
+Como se faz o equivalente a #define em java?
