@@ -24,4 +24,9 @@ public class Local {
     public void setInscritos(ArrayList<Pessoa> inscritos) {
         this.inscritos = inscritos;
     }
+
+    public int getNumInscritos(Local local) {
+        return local.inscritos.size();
+    }
+
 }
