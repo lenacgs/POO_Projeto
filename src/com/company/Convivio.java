@@ -79,7 +79,7 @@ public class Convivio {
         //falta nos acrescentar o atributo nome aos locais
         for(int i=0; i<locaisOrdenados.length; i++) {
             System.out.println("Local: " + locaisOrdenados.get(i).getNome());
-            System.out.println("Número de inscritos: " + getNumInscritos(locaisOrdenados.get(i)));
+            System.out.println("Número de inscritos: " + getNumInscritos(locaisOrdenados[i]));
 
             if (locaisOrdenados.get(i).getClass() == Bar.class)
                 System.out.println("Lotação: " + locaisOrdenados.get(i).getLotacao());
