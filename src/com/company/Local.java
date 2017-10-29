@@ -26,7 +26,7 @@ public class Local {
     }
 
     public int getNumInscritos(Local local) {
-        return local.inscritos.size();
+        return local.inscritos.length;
     }
 
 }

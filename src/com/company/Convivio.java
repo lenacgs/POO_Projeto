@@ -29,12 +29,12 @@ public class Convivio {
     private int getReceita() {
         int receita = 0;
 
-        for (int i=0; i<locais.size(); i++) {
+        for (int i=0; i<locais.length; i++) {
 
             if (locais.get(i) instanceof Exposicao) {
                 Exposicao aux = (Exposicao)locais.get(i);
 
-                for (int j=0; j<locais.get(i).inscritos.size(); j++) {
+                for (int j=0; j<locais.get(i).inscritos.length; j++) {
                     //caso seja Aluno tem desconto de 10%
                     if (locais.get(i).inscritos.get(j).getClass() == Aluno.class) {
                         receita += aux.getCusto() * 0.1;
@@ -61,8 +61,8 @@ public class Convivio {
     public void sortLocaisInscricoes() {
         Local localAux;
 
-        for (int i=0; i<locais.size(); i++) {
-            for (int j=1; j< locais.size(); j++) {
+        for (int i=0; i<locais.length; i++) {
+            for (int j=i; j< locais.length; j++) {
                 if (locais.get(i).getNumInscritos() < locais.get(j).getNumInscritos()) {
                     localAux = locais.get(i);
                     locais.get(i) = locais.get(j);
@@ -77,7 +77,7 @@ public class Convivio {
     public void printLocais() {
         locaisOrdenados = sortLocaisInscricoes(); //para que possamos comecar a impressao dos locais com eles já ordenados.
         //falta nos acrescentar o atributo nome aos locais
-        for(int i=0; i<locaisOrdenados.size(); i++) {
+        for(int i=0; i<locaisOrdenados.length; i++) {
             System.out.println("Local: " + locaisOrdenados.get(i).getNome());
             System.out.println("Número de inscritos: " + getNumInscritos(locaisOrdenados.get(i)));
 
