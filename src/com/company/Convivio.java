@@ -63,10 +63,10 @@ public class Convivio {
 
         for (int i=0; i<locais.length; i++) {
             for (int j=i; j< locais.length; j++) {
-                if (locais.get(i).getNumInscritos() < locais.get(j).getNumInscritos()) {
-                    localAux = locais.get(i);
-                    locais.get(i) = locais.get(j);
-                    locais.get(j) = localAux;
+                if (getNumInscritos(locais.get(i)) < getNumInscritos(locais.get(j))) {
+                    localAux = locais[i];
+                    locais[i] = locais[j];
+                    locais[j] = localAux;
                 }
             }
         }
@@ -82,7 +82,7 @@ public class Convivio {
             System.out.println("Número de inscritos: " + getNumInscritos(locaisOrdenados.get(i)));
 
             if (locaisOrdenados.get(i).getClass() == Bar.class)
-                System.out.println("Lotação: " + locaisOrdenados.getLotacao());
+                System.out.println("Lotação: " + locaisOrdenados.get(i).getLotacao());
         }
     }
 

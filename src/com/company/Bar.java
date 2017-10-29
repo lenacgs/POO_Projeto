@@ -35,4 +35,20 @@ public class Bar extends Local {
     public void setGuestList(ArrayList<Pessoa> guestList) {
         this.guestList = guestList;
     }
+
+    public void printGuestList() {
+        for(int i=0; i<guestList.length; i++) {
+            if (guestList.get(i).getClass() == Aluno.class) { //ATENCAO a classe Aluno ainda não tem o atributo nome
+                System.out.println("Aluno: " + guestList.get(i).getNome() + ", " + guestList.get(i).getPerfil() + ", " + guestList.get(i).getCurso())
+            }
+
+            else if (guestList.get(i).getClass() == Professor.class) {
+                System.out.println("Professor: " + guestList.get(i).getNome() + ", " + guestList.get(i).getPerfil())
+            }
+
+            else if (guestList.get(i).getClass() == Funcionario.class) {
+                System.out.println("Funcionario: " + guestList.get(i).getNome() + ", " + guestList.get(i).getPerfil())
+            }
+        }
+    }
 }

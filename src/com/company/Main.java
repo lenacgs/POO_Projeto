@@ -8,5 +8,8 @@ public class Main {
         //2. apresentação dos locais a visitar
         //printLocais();
 
+        //5.
+        //printGuestList();
+
     }
 }
