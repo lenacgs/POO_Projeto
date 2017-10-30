@@ -4,8 +4,8 @@ public class Exposicao extends Local {
     String tipo;
     int custo;
 
-    public Exposicao(double coordenadas, ArrayList<Pessoa> inscritos, String tipo, int custo) {
-        super(coordenadas, inscritos);
+    public Exposicao(String coordenadas, ArrayList<Pessoa> inscritos, String nome, String tipo, int custo) {
+        super(coordenadas, inscritos, nome);
         this.tipo = tipo;
         this.custo = custo;
     }

@@ -1,5 +1,9 @@
 package com.company;
+
+import java.util.Collections.*;
+import java.util.Comparator;
 import java.util.*;
+
 public class Convivio {
     ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
     ArrayList<Local> locais = new ArrayList<Local>();
@@ -29,12 +33,12 @@ public class Convivio {
     private int getReceita() {
         int receita = 0;
 
-        for (int i=0; i<locais.length; i++) {
+        for (int i=0; i<locais.size(); i++) {
 
             if (locais.get(i) instanceof Exposicao) {
                 Exposicao aux = (Exposicao)locais.get(i);
 
-                for (int j=0; j<locais.get(i).inscritos.length; j++) {
+                for (int j=0; j<locais.get(i).inscritos.size(); j++) {
                     //caso seja Aluno tem desconto de 10%
                     if (locais.get(i).inscritos.get(j).getClass() == Aluno.class) {
                         receita += aux.getCusto() * 0.1;
@@ -58,35 +62,28 @@ public class Convivio {
         return receita;
     }
 
-    public void sortLocaisInscricoes() {
-        Local localAux;
 
-        for (int i=0; i<locais.length; i++) {
-            for (int j=i; j< locais.length; j++) {
-                if (getNumInscritos(locais.get(i)) < getNumInscritos(locais.get(j))) {
-                    localAux = locais[i];
-                    locais[i] = locais[j];
-                    locais[j] = localAux;
-                }
+    private void sortLocaisInscricoes() {
+        Local toMove;
+        for (int i=0; i<locais.size(); i++) {
+            if (locais.get(i).getNumInscritos() < locais.get(i+1).getNumInscritos()) {
+                toMove = locais.get(i);
+                locais.set(i, locais.get(i+1));
+                locais.set(i+1, toMove);
             }
         }
-
-        return locais;
     }
 
-    public void printLocais() {
-        locaisOrdenados = sortLocaisInscricoes(); //para que possamos comecar a impressao dos locais com eles já ordenados.
-        //falta nos acrescentar o atributo nome aos locais
-        for(int i=0; i<locaisOrdenados.length; i++) {
-            System.out.println("Local: " + locaisOrdenados.get(i).getNome());
-            System.out.println("Número de inscritos: " + getNumInscritos(locaisOrdenados[i]));
+    private void printLocais() {
+        sortLocaisInscricoes();
 
-            if (locaisOrdenados.get(i).getClass() == Bar.class)
-                System.out.println("Lotação: " + locaisOrdenados.get(i).getLotacao());
+        System.out.println("Locais disponíveis para visitar: ");
+        for (int i=0; i<locais.size(); i++) {
+            System.out.print("\n" + i + ". " + locais.get(i).getNome() + " ------ " + locais.get(i).getNumInscritos() + " inscritos");
+            if (locais.get(i) instanceof Bar)
+                System.out.println(" ------ " + ((Bar) locais.get(i)).getLotacao());
         }
     }
-
-
 
 }
 

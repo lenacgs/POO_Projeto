@@ -1,5 +1,5 @@
 package com.company;
-
+import java.util.*;
 public class ComunidadeDEI {
     ArrayList<Pessoa> comunidade = new ArrayList<Pessoa>();
 

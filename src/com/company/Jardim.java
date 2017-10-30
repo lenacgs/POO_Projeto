@@ -1,10 +1,10 @@
 package com.company;
-
+import java.util.*;
 public class Jardim extends Parque {
     int area;
 
-    public Jardim(double coordenadas, ArrayList<Pessoa> inscritos, int area) {
-        super(coordenadas, inscritos);
+    public Jardim(String coordenadas, ArrayList<Pessoa> inscritos, String nome, int area) {
+        super(coordenadas, inscritos, nome);
         this.area = area;
     }
 

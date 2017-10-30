@@ -1,15 +1,26 @@
 package com.company;
-
+import java.util.*;
 public class Bar extends Local {
     int lotacao;
     int consumoMin;
     ArrayList<Pessoa> guestList = new ArrayList<Pessoa>();
+    int maxGuestList;
 
-    public Bar(double coordenadas, ArrayList<Pessoa> inscritos, int lotacao, int consumoMin, ArrayList<Pessoa> guestList) {
-        super(coordenadas, inscritos);
+    public Bar(String coordenadas, ArrayList<Pessoa> inscritos, String nome, int lotacao, int consumoMin, ArrayList<Pessoa> guestList, int maxGuestList) {
+        super(coordenadas, inscritos, nome);
         this.lotacao = lotacao;
         this.consumoMin = consumoMin;
         this.guestList = guestList;
+        this.maxGuestList = maxGuestList;
+
+    }
+
+    public int getMaxGuestList() {
+        return maxGuestList;
+    }
+
+    public void setMaxGuestList(int maxGuestList) {
+        this.maxGuestList = maxGuestList;
     }
 
     public int getLotacao() {
@@ -36,19 +47,15 @@ public class Bar extends Local {
         this.guestList = guestList;
     }
 
-    public void printGuestList() {
-        for(int i=0; i<guestList.length; i++) {
-            if (guestList.get(i).getClass() == Aluno.class) { //ATENCAO a classe Aluno ainda não tem o atributo nome
-                System.out.println("Aluno: " + guestList.get(i).getNome() + ", " + guestList.get(i).getPerfil() + ", " + guestList.get(i).getCurso())
-            }
 
-            else if (guestList.get(i).getClass() == Professor.class) {
-                System.out.println("Professor: " + guestList.get(i).getNome() + ", " + guestList.get(i).getPerfil())
-            }
+    private void printGuestList() {
+        for (int i=0; i<guestList.size(); i++) {
+            if (guestList.get(i) instanceof Aluno)
+                System.out.println(i + ". " + guestList.get(i).getClass() + ": " + guestList.get(i).getUsername() + ", " + guestList.get(i).getPerfil() + ", " + ((Aluno) guestList.get(i)).getCurso());
+            System.out.println(i + ". " + guestList.get(i).getClass() + ": " + guestList.get(i).getUsername() + ", " + guestList.get(i).getPerfil());
 
-            else if (guestList.get(i).getClass() == Funcionario.class) {
-                System.out.println("Funcionario: " + guestList.get(i).getNome() + ", " + guestList.get(i).getPerfil())
-            }
         }
     }
+
+
 }

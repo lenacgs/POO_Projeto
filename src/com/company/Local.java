@@ -1,19 +1,32 @@
 package com.company;
 import java.util.*;
 public class Local {
-    double coordenadas;
+    String coordenadas;
     ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
+    String nome;
 
-    public Local(double coordenadas, ArrayList<Pessoa> inscritos) {
+    public Local(String coordenadas, ArrayList<Pessoa> inscritos, String nome) {
         this.coordenadas = coordenadas;
         this.inscritos = inscritos;
+        this.nome = nome;
     }
 
-    public double getCoordenadas() {
+    public Local() {
+
+    }
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCoordenadas() {
         return coordenadas;
     }
 
-    public void setCoordenadas(double coordenadas) {
+    public void setCoordenadas(String coordenadas) {
         this.coordenadas = coordenadas;
     }
 
@@ -25,8 +38,8 @@ public class Local {
         this.inscritos = inscritos;
     }
 
-    public int getNumInscritos(Local local) {
-        return local.inscritos.length;
+    public int getNumInscritos() {
+        return inscritos.size();
     }
 
 }
