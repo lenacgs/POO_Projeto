@@ -1,17 +1,10 @@
 package com.company;
 
-public class Pessoa {
-    String perfil;
-    String password;
-    String username;
-    int id;
-
-    public Pessoa(String perfil, String password, String username, int id) {
-        this.perfil = perfil;
-        this.password = password;
-        this.username = username;
-        this.id = id;
-    }
+public abstract class Pessoa {
+    private String perfil;
+    private String password;
+    private String username;
+    private int id;
 
     public String getPerfil() {
         return perfil;

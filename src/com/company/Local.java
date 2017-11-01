@@ -1,13 +1,12 @@
 package com.company;
 import java.util.*;
-public class Local {
+public  class Local {
     String coordenadas;
     ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
     String nome;
 
-    public Local(String coordenadas, ArrayList<Pessoa> inscritos, String nome) {
+    public Local(String coordenadas, String nome) {
         this.coordenadas = coordenadas;
-        this.inscritos = inscritos;
         this.nome = nome;
     }
 

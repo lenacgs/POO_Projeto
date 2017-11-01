@@ -3,8 +3,8 @@ package com.company;
 public class Aluno extends Pessoa {
     String curso;
 
-    public Aluno(String perfil, String password, String username, int id, String curso) {
-        super(perfil, password, username, id);
+    public Aluno(String perfil, String username, String password, int id, String curso) {
+        super(perfil, username, password, id);
         this.curso = curso;
     }
 

@@ -3,14 +3,14 @@ package com.company;
 import java.util.Collections.*;
 import java.util.Comparator;
 import java.util.*;
+import java.lang.*;
 
 public class Convivio {
-    ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
-    ArrayList<Local> locais = new ArrayList<Local>();
+    public ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
+    public ArrayList<Local> locais = new ArrayList<Local>();
+    private ComunidadeDEI comunity = new ComunidadeDEI();
 
-    public Convivio(ArrayList<Pessoa> inscritos, ArrayList<Local> locais) {
-        this.inscritos = inscritos;
-        this.locais = locais;
+    public Convivio() {
     }
 
     public ArrayList<Pessoa> getInscritos() {
@@ -66,13 +66,16 @@ public class Convivio {
     private void sortLocaisInscricoes() {
         Local toMove;
         for (int i=0; i<locais.size(); i++) {
-            if (locais.get(i).getNumInscritos() < locais.get(i+1).getNumInscritos()) {
-                toMove = locais.get(i);
-                locais.set(i, locais.get(i+1));
-                locais.set(i+1, toMove);
+            for (int j=0; j<locais.size(); j++) {
+                if (locais.get(i).getNumInscritos() < locais.get(i+1).getNumInscritos()) {
+                    toMove = locais.get(i);
+                    locais.set(i, locais.get(i + 1));
+                    locais.set(i + 1, toMove);
+                }
             }
         }
     }
+
 
     private void printLocais() {
         sortLocaisInscricoes();
@@ -85,6 +88,23 @@ public class Convivio {
         }
     }
 
+
+    private void inscrevePessoa(Pessoa p) {
+        inscritos.add(p);
+    }
+
+    private void seleccaoLocais(Pessoa p) {
+        printLocais();
+        System.out.println("Qual o número de locais que pretende visitar?: ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int local;
+        for (int i=0; i<n; i++) {
+            System.out.println("Indique o identificador do local que pretende visitar: ");
+            local = sc.nextInt();
+            locais.get(local-1).inscritos.add(p);
+        }
+    }
 }
 
 

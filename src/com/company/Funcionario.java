@@ -3,8 +3,8 @@ package com.company;
 public class Funcionario extends Pessoa {
     String tipo;
 
-    public Funcionario(String perfil, String password, String username, int id, String tipo) {
-        super(perfil, password, username, id);
+    public Funcionario(String perfil, String username, String password, int id, String tipo) {
+        super(perfil, username, password, id);
         this.tipo = tipo;
     }
 

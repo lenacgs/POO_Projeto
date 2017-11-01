@@ -6,13 +6,11 @@ public class Bar extends Local {
     ArrayList<Pessoa> guestList = new ArrayList<Pessoa>();
     int maxGuestList;
 
-    public Bar(String coordenadas, ArrayList<Pessoa> inscritos, String nome, int lotacao, int consumoMin, ArrayList<Pessoa> guestList, int maxGuestList) {
-        super(coordenadas, inscritos, nome);
+    public Bar(String coordenadas, String nome, int lotacao, int consumoMin, int maxGuestList) {
+        super(coordenadas, nome);
         this.lotacao = lotacao;
         this.consumoMin = consumoMin;
-        this.guestList = guestList;
         this.maxGuestList = maxGuestList;
-
     }
 
     public int getMaxGuestList() {
