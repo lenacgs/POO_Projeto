@@ -1,10 +1,10 @@
 package com.company;
 import java.util.*;
 public class Bar extends Local {
-    int lotacao;
-    int consumoMin;
-    ArrayList<Pessoa> guestList = new ArrayList<Pessoa>();
-    int maxGuestList;
+    private int lotacao;
+    private int consumoMin;
+    private ArrayList<Pessoa> guestList = new ArrayList<Pessoa>();
+    private int maxGuestList;
 
 
     public Bar(String coordenadas, String nome, int lotacao, int consumoMin, int maxGuestList) {
@@ -50,9 +50,9 @@ public class Bar extends Local {
       if (guestList.size() <= maxGuestList)
         guestList.add(p);
       else
-        if (p.getPerfil().equals('boemio') {
+        if (p.getPerfil().equals("boemio")) {
           for (int i=maxGuestList; i>0; i--) {
-            if (guestList.get(i).getPerfil().equals('boemio') == false)
+            if (!guestList.get(i).getPerfil().equals("boemio"))
               guestList.add(i, p); //vai por a nova pessoa na posição da anterior.
           }
         }
