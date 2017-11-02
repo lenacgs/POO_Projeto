@@ -6,7 +6,8 @@ public class ComunidadeDEI {
 
     public ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 
-    public ComunidadeDEI() { }
+    public ComunidadeDEI() {
+    }
 
     public ArrayList<Pessoa> getComunidade() {
         return pessoas;

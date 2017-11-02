@@ -30,7 +30,7 @@ public class Main {
             for (int i=0; i<p.length; i++)
                 comunity.pessoas.add(p[i]);
 
-
+            
         }
 
     }
