@@ -98,12 +98,13 @@ public class Convivio {
         System.out.println("Qual o número de locais que pretende visitar?: ");
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+
         while (n > 5) {
-          System.ou.println("Só pode visitar até cinco locais!");
+          System.out.println("Só pode visitar até cinco locais!");
           System.out.println("Qual o número de locais que pretende visitar?: ");
-          Scanner sc = new Scanner(System.in);
-          int n = sc.nextInt();
+          n = sc.nextInt();
         }
+        
         int local;
         for (int i=0; i<n; i++) {
             System.out.println("Indique o identificador do local que pretende visitar: ");
