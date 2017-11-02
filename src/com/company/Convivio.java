@@ -58,7 +58,7 @@ public class Convivio {
                 }
             }
         }
-        
+
         return receita;
     }
 
@@ -66,11 +66,11 @@ public class Convivio {
     private void sortLocaisInscricoes() {
         Local toMove;
         for (int i=0; i<locais.size(); i++) {
-            for (int j=0; j<locais.size(); j++) {
-                if (locais.get(i).getNumInscritos() < locais.get(i+1).getNumInscritos()) {
+            for (int j=i; j<locais.size(); j++) { //mudança: o j tem que ser igual a i e não a 0
+                if (locais.get(i).getNumInscritos() < locais.get(j).getNumInscritos()) {
                     toMove = locais.get(i);
-                    locais.set(i, locais.get(i + 1));
-                    locais.set(i + 1, toMove);
+                    locais.set(i, locais.get(j));
+                    locais.set(j, toMove);
                 }
             }
         }
@@ -98,6 +98,13 @@ public class Convivio {
         System.out.println("Qual o número de locais que pretende visitar?: ");
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+
+        while (n > 5) {
+          System.out.println("Só pode visitar até cinco locais!");
+          System.out.println("Qual o número de locais que pretende visitar?: ");
+          n = sc.nextInt();
+        }
+        
         int local;
         for (int i=0; i<n; i++) {
             System.out.println("Indique o identificador do local que pretende visitar: ");
@@ -137,19 +144,3 @@ public class Convivio {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
