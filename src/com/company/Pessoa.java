@@ -6,6 +6,13 @@ public abstract class Pessoa {
     private String username;
     private int id;
 
+    public Pessoa(String perfil, String password, String username, int id) {
+        this.perfil = perfil;
+        this.password = password;
+        this.username = username;
+        this.id = id;
+    }
+
     public String getPerfil() {
         return perfil;
     }
