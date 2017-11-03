@@ -1,9 +1,10 @@
 package com.company;
 import java.util.*;
-public  class Local {
-    String coordenadas;
-    ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
-    String nome;
+
+public abstract class Local {
+    private String coordenadas;
+    private ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
+    private String nome;
 
     public Local(String coordenadas, String nome) {
         this.coordenadas = coordenadas;
@@ -41,4 +42,5 @@ public  class Local {
         return inscritos.size();
     }
 
+    abstract double getReceita();
 }

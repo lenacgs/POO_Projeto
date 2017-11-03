@@ -17,13 +17,18 @@ public class ComunidadeDEI {
         this.pessoas = pessoas;
     }
 
-    public Pessoa procuraPessoa(String username, String password) {
+    public Pessoa procuraPessoa(String username) {
         for (Pessoa i : pessoas) {
             if (i.getUsername().equals(username)) {
-                if (i.getPassword().equals(password)) {
-                    return i;
+                Scanner sc = new Scanner(System.in);
+                String password = sc.nextLine();
+                while(!i.getPassword().equals(password)) {
+                    System.out.println("Password incorreta, tente outra vez: ");
+                    password = sc.nextLine();
                 }
-            } else {
+                return i;
+            }
+            else {
                 System.out.println("Este username e password não estão registados na Comunidade do DEI.");
                 return null;
             }
@@ -31,7 +36,8 @@ public class ComunidadeDEI {
         return null;
     }
 
-    public void newPessoa() {
+    public Pessoa newPessoa() {
+        Pessoa p = null;
         String username, password, perfil;
         int id = novoID(); /*novoID é uma função que retorna um random que ainda não exista como id na comunidade*/
         Scanner sc = new Scanner(System.in);
@@ -53,41 +59,45 @@ public class ComunidadeDEI {
         String ans = sc.nextLine();
         switch (ans) {
             case "aluno":
-                newAluno(username, password, id, perfil);
+                p = newAluno(username, password, id, perfil);
                 break;
             case "professor":
-                newProfessor(username, password, id, perfil);
+                p = newProfessor(username, password, id, perfil);
                 break;
             case "funcionario":
-                newFuncionario(username, password, id, perfil);
+                p = newFuncionario(username, password, id, perfil);
         }
+        return p;
     }
 
-    public void newAluno(String username, String password, int id, String perfil) {
+    public Pessoa newAluno(String username, String password, int id, String perfil) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Insira o curso frequentado: ");
         String curso = sc.nextLine();
 
         Aluno novo = new Aluno(perfil, username, password, id, curso);
         pessoas.add(novo);
+        return novo;
     }
 
-    public void newProfessor(String username, String password, int id, String perfil) {
+    public Pessoa newProfessor(String username, String password, int id, String perfil) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Insira o tipo de professor: auxiliar, associado ou catedrático: ");
         String tipo = sc.nextLine();
 
         Professor novo = new Professor(perfil, username, password, id, tipo);
         pessoas.add(novo);
+        return novo;
     }
 
-    public void newFuncionario(String username, String password, int id, String perfil) {
+    public Pessoa newFuncionario(String username, String password, int id, String perfil) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Insira o tipo de funcionário: a tempo: integral ou parcial: ");
         String tipo = sc.nextLine();
 
         Funcionario novo = new Funcionario(perfil, username, password, id, tipo);
         pessoas.add(novo);
+        return novo;
     }
 
     public boolean verificaNovoUsername(String username) {

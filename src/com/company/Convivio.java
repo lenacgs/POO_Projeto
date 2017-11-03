@@ -30,33 +30,11 @@ public class Convivio {
     }
 
     //calcula a receita de todos os locais do convivio
-    private int getReceita() {
+    public int getReceita() {
         int receita = 0;
 
-        for (int i=0; i<locais.size(); i++) {
-
-            if (locais.get(i) instanceof Exposicao) {
-                Exposicao aux = (Exposicao)locais.get(i);
-
-                for (int j=0; j<locais.get(i).inscritos.size(); j++) {
-                    //caso seja Aluno tem desconto de 10%
-                    if (locais.get(i).inscritos.get(j).getClass() == Aluno.class) {
-                        receita += aux.getCusto() * 0.1;
-                    }
-
-                    else {
-                        receita += aux.getCusto();
-                    }
-                }
-            }
-
-            else if (locais.get(i) instanceof Bar) {
-                Bar aux = (Bar)locais.get(i);
-
-                for (int j=0; j<locais.get(i).inscritos.size(); j++) {
-                    receita += aux.getConsumoMin();
-                }
-            }
+        for (Local i : locais) {
+            receita += i.getReceita();
         }
 
         return receita;
@@ -109,8 +87,24 @@ public class Convivio {
         for (int i=0; i<n; i++) {
             System.out.println("Indique o identificador do local que pretende visitar: ");
             local = sc.nextInt();
-            locais.get(local-1).inscritos.add(p);
+            locais.get(local-1).getInscritos().add(p);
         }
+    }
+
+    public Pessoa login() {
+        System.out.println("username ('r' para registar novo user): ");
+        Pessoa p;
+        Scanner sc = new Scanner(System.in);
+        String username = sc.nextLine();
+        if (username.equals("r")) p = comunity.newPessoa();
+
+        else {
+            p = comunity.procuraPessoa(username);
+            if (p == null)
+                p = comunity.newPessoa();
+        }
+        return p;
+
     }
 
 

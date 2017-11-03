@@ -62,9 +62,13 @@ public class Bar extends Local {
         for (int i=0; i<guestList.size(); i++) {
             if (guestList.get(i) instanceof Aluno)
                 System.out.println(i + ". " + guestList.get(i).getClass() + ": " + guestList.get(i).getUsername() + ", " + guestList.get(i).getPerfil() + ", " + ((Aluno) guestList.get(i)).getCurso());
-            System.out.println(i + ". " + guestList.get(i).getClass() + ": " + guestList.get(i).getUsername() + ", " + guestList.get(i).getPerfil());
+            else System.out.println(i + ". " + guestList.get(i).getClass() + ": " + guestList.get(i).getUsername() + ", " + guestList.get(i).getPerfil());
 
         }
+    }
+
+    public double getReceita() {
+        return (getNumInscritos() * consumoMin);
     }
 
 

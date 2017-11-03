@@ -1,8 +1,8 @@
 package com.company;
 import java.util.*;
 public class Exposicao extends Local {
-    String tipo;
-    int custo;
+    private String tipo;
+    private int custo;
 
     public Exposicao(String coordenadas, String nome, String tipo, int custo) {
         super(coordenadas, nome);
@@ -24,5 +24,16 @@ public class Exposicao extends Local {
 
     public void setCusto(int custo) {
         this.custo = custo;
+    }
+
+    public double getReceita() {
+        double receita = 0;
+        for (Pessoa i : getInscritos()) {
+            if (i instanceof Aluno)
+                receita += 0.1 * custo;
+            else
+                receita += custo;
+        }
+        return receita;
     }
 }
