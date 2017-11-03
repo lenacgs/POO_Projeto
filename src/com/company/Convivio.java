@@ -30,7 +30,7 @@ public class Convivio {
     }
 
     //calcula a receita de todos os locais do convivio
-    public int getReceita() {
+    public double getReceita() {
         int receita = 0;
 
         for (Local i : locais) {
@@ -71,7 +71,7 @@ public class Convivio {
         inscritos.add(p);
     }
 
-    private void seleccaoLocais(Pessoa p) {
+    private void selectLocais(Pessoa p) {
         printLocais();
         System.out.println("Qual o número de locais que pretende visitar?: ");
         Scanner sc = new Scanner(System.in);
