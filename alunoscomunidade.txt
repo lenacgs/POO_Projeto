@@ -1,0 +1,9 @@
+1,lenacgs,poupadinho,informatica
+2,inesamaro,desportivo,informatica
+3,ferreiro,poupadinho,informatica
+4,jesus,cultural,design
+5,mafalda,boemio,design
+6,rita,cultural,informatica
+7,carolina,desportivo,direito
+8,sofia,poupadinho,civil
+9,maria,cultural,linguasmodernas

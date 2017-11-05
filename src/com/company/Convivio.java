@@ -6,8 +6,8 @@ import java.util.*;
 import java.lang.*;
 
 public class Convivio {
-    public ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
-    public ArrayList<Local> locais = new ArrayList<Local>();
+    private ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
+    private ArrayList<Local> locais = new ArrayList<Local>();
 
     public Convivio() {
     }
@@ -29,6 +29,7 @@ public class Convivio {
     }
 
     //calcula a receita de todos os locais do convivio
+
     public double getReceita() {
         int receita = 0;
 
