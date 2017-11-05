@@ -1,7 +1,10 @@
 package com.company;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 import java.security.SecureRandom;
 import java.util.*;
 import java.math.*;
+import java.io.*;
 public class ComunidadeDEI {
 
     private ArrayList<Pessoa> membros = new ArrayList<Pessoa>();
@@ -148,33 +151,37 @@ public class ComunidadeDEI {
         return null;
     }
 
+    public void readAlunos() { //a ultima linha imprime 'null' mas nao sei porque
+        String [] alunos = new String [10];
+        try {
+            File f = new File("alunoscomunidade.txt");
+            FileReader fr = new FileReader(f);
+            BufferedReader br = new BufferedReader(fr);
+
+            try {
+                String input = br.readLine();
+                int i=0;
+                while (input != null) {
+                    alunos[i] = input;
+                    input = br.readLine();
+                    i++;
+                }
+            } catch (IOException e1) {
+                System.out.println("Exception while reading line from file: " + e1);
+            }
+        } catch (FileNotFoundException e2) {
+            System.out.println("File does not exist: " + e2);
+        }
+
+        for (int i=0; i<alunos.length; i++)
+            System.out.println(alunos[i]);
+    }
 
     private static boolean debug = true; //para testes
     public static void main(String[] args) {
 
-        if (debug) {
+        ComunidadeDEI comunity = new ComunidadeDEI();
 
-            ComunidadeDEI comunity = new ComunidadeDEI();
-            Local[] v = new Local[4];
-            v[0] = new Jardim("1233:42:5", "Jardim da Sereia", 25);
-            v[1] = new Bar("2136:17623:434", "Moelas", 100, 1, 40);
-            v[2] = new Exposicao("312:234:2937468", "Trabalhos de Design", "Pintura", 5);
-            String[] desportos = {"Futebol", "Basquetebol", "Ballet"};
-            v[3] = new AreaDesportiva("123:234:234", "Campo de futebol", desportos);
-
-            for (int i = 0; i < v.length; i++)
-                comunity.convivio.getLocais().add(v[i]);
-
-            Pessoa[] p = new Pessoa[5];
-            p[0] = new Aluno("Boémio", "1234", "josepaulo", 1, "medicina");
-            p[1] = new Professor("Poupadinho", "1234", "mariajose", 2, "catedrático");
-            p[2] = new Funcionario("boémio", "1234", "antoniocosta", 3, "tempo inteiro");
-            p[3] = new Professor("boemio", "1234", "marilia", 4, "contratado");
-            p[4] = new Aluno("poupadinho", "1234", "inessantos", 5, "design");
-
-            for (int i = 0; i < p.length; i++)
-                comunity.membros.add(p[i]);
-
-        }
+        comunity.readAlunos();
     }
 }
