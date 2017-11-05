@@ -1,0 +1,27 @@
+POO Projeto
+
+1.Inscrição no convívio
+inscrevePessoa(): recebe do utilizador o id, e percorre a ArrayList<Pessoa> comunidade até encontrar a pessoa com esse id. Apresenta o username e pede a password. Se tiver acesso adiciona a pessoa á ArrayList<Pessoa> Inscritos do Convivio.
+A inscrição está restrita aos membros da comunidade do DEI Ver se a pessoa que se quer inscrever está no ArrayList<Pessoa> que está na classe ComunidadeDEI. A cada pessoa tem um username e uma palavra passe associadas a ele.
+
+2. Apresentação dos locais a visitar
+Aceder á classe Convivio e imprime todos os elementos do ArrayList<Local> (imprimir o seu nome) printLocais() e, usando o método getNumInscritos(), que está na classe Local, imprimir o número total de inscritos, bem como a lotação de cada local quando se aplica getLotação() que é um getter (fazer um if para saber se o local em causa é um bar getClass()). (Fazer a 4. Seriação dos locais a visitar simultaneamente. Ou seja, quando listamos os locais que vamos visitar devemos lista-los por ordem decrescente de número de inscrições sortLocaisIncricoes()).
+
+3. Seleção dos locais a visitar selecaoLocais()
+Imprimir todos os locais que estão na classe Convivio na sua ArrayList<Local> (numerados ou não, não sabemos por causa da interface gráfica) printLocais() e deixar que a pessoa escolha um máximo de 5.
+Sempre que a pessoa escolher um local essa pessoa deve ir parar ao ArrayList<Pessoa> desse local (fazendo add() dessa pessoa a ArrayList).
+
+5. Visualização da “Guest List”
+Imprimir a ArrayList<Pessoa> GuestList de cada local printGuestList(). MAX_GUEST * lotação.
+Enquanto a GuestList estiver vazia todos os inscritos são adicionados a ela. Quando a GuestList está cheia e aparece um boémico percorremos a lista de baixo para cima, até encontrarmos um não boémico que vamos substituir por um boémico.
+Cada Bar deve ter um método printGuestList() que consoante seja Aluno ou Professor ou Funcionario deve imprimir os seus atributos da forma especificada.
+
+6. Contabilização das receitas dos locais visitados - getReceita()
+Temos que ir a ArrayList<Local> locais e aceder á ArrayList<Pessoa> inscritos de cada local.
+Só nos interessando os locais que são Exposições ou Bares.
+Quando é uma Exposição devemos ter duas variáveis, numAlunos, numOutros. A receita das Exposições vai ser numAlunos*(custo*0.90) + numOutros*custo.
+Quando é um bar temos só uma variável com numTotal e a receita é numTotal*consumoMin.
+
+
+26 Out Madalena -------------------
+Como se faz o equivalente a #define em java?
