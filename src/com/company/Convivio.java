@@ -38,19 +38,7 @@ public class Convivio {
         return percGuestList;
     }
 
-    //calcula a receita de todos os locais do convivio
-
-    public double getReceita() {
-        int receita = 0;
-
-        for (Local i : locais) {
-            receita += i.getReceita();
-        }
-
-        return receita;
-    }
-
-    private void sortLocaisInscricoes() {
+    /*private void sortLocaisInscricoes() {
         Local toMove;
         for (int i=0; i<locais.size(); i++) {
             for (int j=i; j<locais.size(); j++) { //mudança: o j tem que ser igual a i e não a 0
@@ -72,8 +60,14 @@ public class Convivio {
             if (locais.get(i) instanceof Bar)
                 System.out.println(" ------ " + ((Bar) locais.get(i)).getLotacao());
         }
-    }
+    }*/
 
+    public double getReceita() {
+        double total = 0;
+        for (Local l:locais) {
+            switch (l.Class)
+        }
+    }
 
 
 
