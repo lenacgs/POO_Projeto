@@ -64,9 +64,15 @@ public class Convivio {
 
     public double getReceita() {
         double total = 0;
-        for (Local l:locais) {
-            switch (l.Class)
+
+        for (Local l:locais) { //percorre a lista dos locais do convivio
+            if (l instanceof Bar)
+                total += (inscricoes.getNumInscritos(l) * ((Bar) l).getConsumoMin());
+            else if (l instanceof Exposicao) //numa exposicao, os alunos têm 10% de desconto
+                //receita = numAlunos * 0.1 * custo + (numInscritos - numAlunos) * custo;
+                total += inscricoes.getNumAlunosInscritos(l) * 0.1 * ((Exposicao) l).getCusto() + (inscricoes.getNumInscritos(l) - inscricoes.getNumAlunosInscritos(l)) * ((Exposicao) l).getCusto();
         }
+        return total;
     }
 
 
