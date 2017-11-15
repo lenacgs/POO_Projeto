@@ -27,7 +27,7 @@ public class Bar extends Local {
     }
 
     public double getReceita() {
-
+        return 0;
     }
 
 }

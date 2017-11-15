@@ -5,6 +5,27 @@ public class Inscricao {
     private Pessoa user;
     private ArrayList<Local> locais = new ArrayList<>();
 
+    public Pessoa getUser() {
+        return user;
+    }
+
+    public void setUser(Pessoa user) {
+        this.user = user;
+    }
+
+    public ArrayList<Local> getLocais() {
+        return locais;
+    }
+
+    public void setLocais(ArrayList<Local> locais) {
+        this.locais = locais;
+    }
+
+    public Inscricao(Pessoa user) {
+        this.user = user;
+
+    }
+
     public void selectLocais(Pessoa pessoa) {
 
     }
