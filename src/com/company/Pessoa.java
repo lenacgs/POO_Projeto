@@ -5,12 +5,22 @@ public abstract class Pessoa {
     private String password;
     private String username;
     private int id;
+    private boolean isInGuestList;
 
-    public Pessoa(String perfil, String password, String username, int id) {
+    public Pessoa(String perfil, String username, int id) {
         this.perfil = perfil;
-        this.password = password;
         this.username = username;
+        this.password = null;
         this.id = id;
+        this.isInGuestList = false;
+    }
+
+    public boolean isInGuestList() {
+        return isInGuestList;
+    }
+
+    public void setInGuestList(boolean inGuestList) {
+        isInGuestList = inGuestList;
     }
 
     public String getPerfil() {

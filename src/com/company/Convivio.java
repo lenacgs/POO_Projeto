@@ -6,26 +6,36 @@ import java.util.*;
 import java.lang.*;
 
 public class Convivio {
-    private ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
-    private ArrayList<Local> locais = new ArrayList<Local>();
+    private Inscricoes inscricoes = new Inscricoes();
+    private ArrayList<Local> locais = new ArrayList<>();
+    private int percGuestList;
 
     public Convivio() {
     }
 
-    public ArrayList<Pessoa> getInscritos() {
-        return inscritos;
+    public void setInscricoes(Inscricoes inscricoes) {
+        this.inscricoes = inscricoes;
     }
 
-    public void setInscritos(ArrayList<Pessoa> inscritos) {
-        this.inscritos = inscritos;
+    public void setLocais(ArrayList<Local> locais) {
+        this.locais = locais;
+    }
+
+    public void setPercGuestList(int percGuestList) {
+        this.percGuestList = percGuestList;
+    }
+
+    public Inscricoes getInscricoes() {
+
+        return inscricoes;
     }
 
     public ArrayList<Local> getLocais() {
         return locais;
     }
 
-    public void setLocais(ArrayList<Local> locais) {
-        this.locais = locais;
+    public int getPercGuestList() {
+        return percGuestList;
     }
 
     //calcula a receita de todos os locais do convivio
@@ -64,30 +74,8 @@ public class Convivio {
         }
     }
 
-    private void inscrevePessoa(Pessoa p) {
-        inscritos.add(p);
-    }
 
-    private void selectLocais(Pessoa p) {
-        printLocais();
-        System.out.println("Qual o número de locais que pretende visitar?: ");
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
 
-        //isto devia ser um metodo de protecao
-        while (n > 5) {
-          System.out.println("Só pode visitar até cinco locais!");
-          System.out.println("Qual o número de locais que pretende visitar?: ");
-          n = sc.nextInt();
-        }
-        
-        int local;
-        for (int i=0; i<n; i++) {
-            System.out.println("Indique o identificador do local que pretende visitar: ");
-            local = sc.nextInt();
-            locais.get(local-1).getInscritos().add(p);
-        }
-    }
 
 
 }

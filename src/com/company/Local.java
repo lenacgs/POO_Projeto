@@ -3,7 +3,6 @@ import java.util.*;
 
 public abstract class Local {
     private String coordenadas;
-    private ArrayList<Pessoa> inscritos = new ArrayList<Pessoa>();
     private String nome;
 
     public Local(String coordenadas, String nome) {
@@ -11,9 +10,6 @@ public abstract class Local {
         this.nome = nome;
     }
 
-    public Local() {
-
-    }
     public String getNome() {
         return nome;
     }
@@ -28,18 +24,6 @@ public abstract class Local {
 
     public void setCoordenadas(String coordenadas) {
         this.coordenadas = coordenadas;
-    }
-
-    public ArrayList<Pessoa> getInscritos() {
-        return inscritos;
-    }
-
-    public void setInscritos(ArrayList<Pessoa> inscritos) {
-        this.inscritos = inscritos;
-    }
-
-    public int getNumInscritos() {
-        return inscritos.size();
     }
 
     abstract double getReceita();
