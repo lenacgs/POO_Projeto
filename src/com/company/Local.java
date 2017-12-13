@@ -25,6 +25,4 @@ public abstract class Local {
     public void setCoordenadas(String coordenadas) {
         this.coordenadas = coordenadas;
     }
-
-    abstract double getReceita();
 }

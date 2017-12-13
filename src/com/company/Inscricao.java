@@ -26,8 +26,27 @@ public class Inscricao {
 
     }
 
-    public void selectLocais(Pessoa pessoa) {
+    void printLocais() {
+        for (Local i:locais) {
+            System.out.println(i.getNome());
+        }
+    }
 
+    public void selectLocais(Pessoa pessoa) {
+        printLocais();
+        Scanner sc = new Scanner(System.in);
+        int n;
+        do {
+            System.out.println("Qual o numero de locais que pretende visitar?: ");
+            n = sc.nextInt();
+        } while (n > 5);
+
+        printLocais();
+        int local;
+        for (int i=0; i<n; i++) {
+            System.out.println("Indique o identificador do local que pretende visitar: ");
+            local = sc.nextInt();
+        }
     }
 }
 

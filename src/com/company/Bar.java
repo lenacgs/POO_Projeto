@@ -26,8 +26,8 @@ public class Bar extends Local {
         this.consumoMin = consumoMin;
     }
 
-    public double getReceita() {
-        return 0;
+    public void printGuestList() {
+
     }
 
 }
